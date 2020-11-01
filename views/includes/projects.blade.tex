@@ -1,0 +1,27 @@
+%----------------------------------------------------------------------------------------
+% Projets
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['projects']) && count($data['projects']['sections']) > 0)
+    \section{ {{ $data['projects']['title'] }} } \vspace{1mm}
+    \begin{tabular}{r|p{15cm}}
+
+    @foreach ($data['projects']['sections'] as $i => $project)
+
+        {{ $project['period'] }} & {{ $project['title'] }} \\
+
+        @foreach ($project['bullet points'] as $j => $subsection)
+            @if (isset($project['link']) && isset($project['link'][$j]))
+                \{{ $project['link'][$j]['font awesome icon'] }} \hspace{1mm}
+                \href{ {{ $project['link'][$j]['link'] }} } { {{ $project['link'][$j]['title'] }} }
+
+            @endif
+
+            &
+            {{ $subsection }} \\
+        @endforeach
+
+        \multicolumn{2}{c}{} \\
+    @endforeach
+    \end{tabular}
+@endif

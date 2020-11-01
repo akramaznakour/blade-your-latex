@@ -1,0 +1,32 @@
+%----------------------------------------------------------------------------------------
+% Eduction
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['eduction']) && count($data['eduction']) > 0)
+    \section{ {{ $data['eduction']['title'] }} }
+    \begin{tabular}{r|p{15.5cm}}
+    @foreach ($data['eduction']['sections'] as $eduction)
+        \textsc{ {{ $eduction['period'] }} } & {{ $eduction['title'] }}
+        @if (isset($eduction['GPA'])) \hfill \textit{ {{ $eduction['GPA'] }} }
+        @endif
+        \\
+        @foreach ($eduction['bullet points'] as $subsection)
+            & \small { {{ $subsection }} } \\
+
+        @endforeach
+        \multicolumn{2}{c}{} \\
+    @endforeach
+
+    \end{tabular}
+@endif
+
+
+{{-- \textsc{2018} & B. Tech in Electrical Engineering, \textbf{Indian Institute of
+Technology, Kanpur} \hfill \textit{GPA: \textsc{9.9/10}}\\
+& \textit{Minors}: Machine Learning, Linguistic Theory\\
+& \small $\bullet$ Awarded \textit{General Proficiency Medal} for graduating with the highest GPA among EE
+undergraduates\\
+& \small $\bullet$ Awarded \textit{Proficiency Prize} for outstanding undergraduate research\\
+& \small $\bullet$ Awarded \textit{Motorola Gold Medal} for outstanding overall achievement among CS/EE undergraduates
+\\
+\end{tabular} --}}

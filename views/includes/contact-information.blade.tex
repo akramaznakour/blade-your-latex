@@ -1,0 +1,14 @@
+%----------------------------------------------------------------------------------------
+% Contact information
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['contact information']) && count($data['contact information']) > 0)
+    \section{ {{ $data['contact information']['title'] }} } \vspace{1mm}
+    \begin{tabular} {l r}
+    @foreach ($data['contact information']['sections'] as $i=>$information) \textsc{
+        {{ $information['title'] }}:} {{ $information['value'] }}  @unless($loop->last) & @endunless
+    @endforeach
+    \\
+    \end{tabular}
+@endif
+

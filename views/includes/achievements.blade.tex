@@ -1,0 +1,13 @@
+%----------------------------------------------------------------------------------------
+% Achievements
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['achievements']) && count($data['achievements']) > 0)
+    \vspace {2mm} \section{ {{ $data['achievements']['title'] }} } \vspace {2mm}
+    \begin{tabular}{r|p{15cm}}
+    @foreach ($data['achievements']['sections'] as $achievement)
+    \textsc{ {{ $achievement['period'] }}:} & {{ $achievement['title'] }} \\
+    @endforeach
+    \end{tabular}
+@endif
+

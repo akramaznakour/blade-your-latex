@@ -1,0 +1,14 @@
+%----------------------------------------------------------------------------------------
+% Languages
+%----------------------------------------------------------------------------------------
+
+
+@if (isset($data['languages']) && count($data['languages']) > 0)
+    \section{ {{ $data['languages']['title'] }} } \vspace{1mm}
+    \begin{tabular}{l l l l }
+    @foreach ($data['languages']['sections'] as $i=>$language)
+        {{ $language }} @unless($loop->last) & @endunless
+    @endforeach
+    \\
+    \end{tabular}
+@endif

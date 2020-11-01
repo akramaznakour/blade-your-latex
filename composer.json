@@ -1,0 +1,14 @@
+{
+  "name": "akramaznakour/blade-your-latex",
+  "description": "blade your latex",
+  "require": {
+    "jenssegers/blade": "^1.4",
+    "corny-phoenix/tex-tools": "dev-master"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Akram Aznakour"
+    }
+  ]
+}

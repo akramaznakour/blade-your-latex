@@ -1,0 +1,49 @@
+%----------------------------------------------------------------------------------------
+% Professional experience
+%----------------------------------------------------------------------------------------
+{{-- 
+@isset ($data['professional experience'])
+\section{ {{$data['professional experience']['title']}} }
+\centering
+\begin{tabuler}{r|p{15cm}}
+@foreach ($data['professional experience']['sections'] as $i => $experience)
+    \textsc{ {{ $experience['period'] }} } &  \textsc{ {{ $experience['title'] }} } \\
+    \{{ $experience['link']['font awesome icon'] }}  \hspace{1mm}\href{ {{ $experience['link']['url'] }}  }{ {{ $experience['link']['title'] }}  } & \textit{Undergraduate experience at IIT Kanpur}\\
+    \{{ $experience['link']['font awesome icon'] }}  \hspace{1mm}\href{ {{ $experience['link']['url'] }}  }{ {{ $experience['link']['title'] }}  } & \textit{Supervisor}: \textsc{Dr. Piyush Rai}
+        @isset($experience['bullet points'])
+            \begin{itemize}
+                @foreach ( $experience['bullet points'] as $j=>$point)  
+                \item {{ $point }} 
+                @endforeach
+            \vspace*{-\baselineskip}
+            \end{itemize}\\
+        @endisset
+    \multicolumn{2}{c}{}\\
+@endforeach
+\end{tabuler}
+@endisset
+
+ --}}
+
+@if (isset($data['professional experience']) && count($data['professional experience']['sections']) > 0)
+    \section{ {{ $data['professional experience']['title'] }} } \vspace{1mm}
+    \begin{tabular}{r|p{15cm}}
+
+    @foreach ($data['professional experience']['sections'] as $i => $experience)
+
+        {{ $experience['period'] }} & {{ $experience['title'] }} \\
+
+        @isset($experience['bullet points'] )
+        @foreach ($experience['bullet points'] as $subsection)
+        \{{ $experience['link']['font awesome icon'] }} \hspace{1mm}
+        \href{ {{ $experience['link']['url'] }} } { {{ $experience['link']['title'] }} }
+        &
+        {{ $subsection }} \\
+        @endforeach
+
+    
+@endisset
+        \multicolumn{2}{c}{} \\
+    @endforeach
+    \end{tabular}
+@endif

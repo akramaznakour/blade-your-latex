@@ -1,0 +1,16 @@
+%----------------------------------------------------------------------------------------
+% Social media
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['social media']) && count($data['social media']['sections']) > 0)
+    \normalsize
+    @foreach ($data['social media']['sections'] as $index => $social)
+        \{{ $social['font awesome icon'] }} \hspace{1mm}
+        \href{ {{ $social['link'] }} } { {{ $social['title'] }} }
+        @if ($loop->last) \par
+        @else \hspace{1mm} | \hspace{1mm}
+        @endif
+    @endforeach
+@endif
+
+}

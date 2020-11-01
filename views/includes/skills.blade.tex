@@ -1,0 +1,17 @@
+%----------------------------------------------------------------------------------------
+% Skills
+%----------------------------------------------------------------------------------------
+
+@if (isset($data['skills']) && count($data['skills']['sections']) > 0)
+    \section{ {{ $data['skills']['title'] }} } \vspace{1mm}
+    \begin{tabular}{rp{15cm}}
+    @foreach ($data['skills']['sections'] as $i => $section)
+        {{ $section['title'] }} &
+        @foreach ($section['bullet points'] as $j => $subsection)
+            @if ($loop->last) {{ $subsection }}
+            @else {{ $subsection . ',' }}
+            @endif
+        @endforeach \\
+    @endforeach
+    \end{tabular}
+@endif
